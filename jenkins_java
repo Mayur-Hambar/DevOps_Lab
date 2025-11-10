@@ -2,7 +2,6 @@ pipeline{
   agent any
 
   tools{
-    sh 'sudo apt install openjdk-21-jdk'
     jdk 'jdk21'
   }
 
