@@ -1,0 +1,31 @@
+pipeline{
+  agent any
+
+  tools{
+    python 'Python 3.12'
+  }
+
+  stages{
+    stage('Checkout'){
+      steps{
+        git branch: 'main', url: 'https://github.com/Mayur-Hambar/DevOps_Lab' 
+      }
+    }
+
+    stage('Run'){
+      steps{
+        echo 'Running the Python program...'
+        sh 'python3 HelloPython.py'
+      }
+    }
+  }
+
+  post{
+    success{
+      echo 'Build and execution successful..'
+    }
+    failure{
+      echo 'Build failed..'
+    }
+  }
+}
